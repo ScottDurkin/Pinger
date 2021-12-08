@@ -60,7 +60,7 @@ namespace PingApp
 
                     String PingCountStr = String.Format("Pings: {0}", IDE_PING_LIST.Items.Count);
                     String PingLastStr = String.Format("Last Ping: {0} - {1}", DateStr, TimeStr);
-                    String HighestPingStr = String.Format("Highest Ping: {0}", m_Pings.Max(x => x));
+                    String HighestPingStr = String.Format("Highest Ping: {0}ms", m_Pings.Max(x => x));
                     IDC_PING_COUNT.Text = PingCountStr;
                     IDC_LAST_PING_DATETIME.Text = PingLastStr;
                     IDC_HIGHEST_PING.Text = HighestPingStr;
