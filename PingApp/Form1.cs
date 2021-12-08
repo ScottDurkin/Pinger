@@ -14,10 +14,11 @@ namespace PingApp
     public partial class IDD_FORM : Form
     {
         static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        List<long> m_Pings;
         public IDD_FORM()
         {
             InitializeComponent();
-
+            m_Pings = new List<long>();
             /* Adds the event and the event handler for the method that will 
          process the timer event to the timer. */
             myTimer.Tick += new EventHandler(TimerEventProcessor);
@@ -25,6 +26,8 @@ namespace PingApp
             // Sets the timer interval to 5 seconds.
             myTimer.Interval = 5000;
             myTimer.Start();
+
+
 
             //// Runs the timer, and raises the event.
             //while (exitFlag == false)
@@ -45,6 +48,7 @@ namespace PingApp
                 PingReply reply = ping.Send("google.com");
                 if (reply != null)
                 {
+                    m_Pings.Add(reply.RoundtripTime);
                     String msg = String.Format("Ping: {0}ms", reply.RoundtripTime);
                     IDE_PING_LIST.Items.Add(msg);
                     IDE_PING_LIST.SelectedIndex = IDE_PING_LIST.Items.Count - 1;
@@ -56,8 +60,10 @@ namespace PingApp
 
                     String PingCountStr = String.Format("Pings: {0}", IDE_PING_LIST.Items.Count);
                     String PingLastStr = String.Format("Last Ping: {0} - {1}", DateStr, TimeStr);
+                    String HighestPingStr = String.Format("Highest Ping: {0}", m_Pings.Max(x => x));
                     IDC_PING_COUNT.Text = PingCountStr;
                     IDC_LAST_PING_DATETIME.Text = PingLastStr;
+                    IDC_HIGHEST_PING.Text = HighestPingStr;
                 }
             }
             catch (Exception ex)

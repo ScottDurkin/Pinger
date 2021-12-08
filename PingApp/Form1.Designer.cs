@@ -32,6 +32,7 @@ namespace PingApp
             this.IDE_PING_LIST = new System.Windows.Forms.ListBox();
             this.IDC_PING_COUNT = new System.Windows.Forms.Label();
             this.IDC_LAST_PING_DATETIME = new System.Windows.Forms.Label();
+            this.IDC_HIGHEST_PING = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // IDE_PING_LIST
@@ -72,12 +73,25 @@ namespace PingApp
             this.IDC_LAST_PING_DATETIME.TabIndex = 2;
             this.IDC_LAST_PING_DATETIME.Text = "Last Ping: No ping yet";
             // 
+            // IDC_HIGHEST_PING
+            // 
+            this.IDC_HIGHEST_PING.AutoSize = true;
+            this.IDC_HIGHEST_PING.BackColor = System.Drawing.Color.Transparent;
+            this.IDC_HIGHEST_PING.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDC_HIGHEST_PING.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.IDC_HIGHEST_PING.Location = new System.Drawing.Point(9, 429);
+            this.IDC_HIGHEST_PING.Name = "IDC_HIGHEST_PING";
+            this.IDC_HIGHEST_PING.Size = new System.Drawing.Size(206, 22);
+            this.IDC_HIGHEST_PING.TabIndex = 3;
+            this.IDC_HIGHEST_PING.Text = "Highest Ping: Not Found";
+            // 
             // IDD_FORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(379, 453);
+            this.ClientSize = new System.Drawing.Size(379, 465);
+            this.Controls.Add(this.IDC_HIGHEST_PING);
             this.Controls.Add(this.IDC_LAST_PING_DATETIME);
             this.Controls.Add(this.IDC_PING_COUNT);
             this.Controls.Add(this.IDE_PING_LIST);
@@ -96,6 +110,7 @@ namespace PingApp
         private System.Windows.Forms.ListBox IDE_PING_LIST;
         private System.Windows.Forms.Label IDC_PING_COUNT;
         private System.Windows.Forms.Label IDC_LAST_PING_DATETIME;
+        private System.Windows.Forms.Label IDC_HIGHEST_PING;
     }
 }
 
